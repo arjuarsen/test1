@@ -1,0 +1,32 @@
+pipeline{
+    agent { docker { image 'python:3.5.1' } }
+    // environment{
+    //     envvar = 'env'
+    // }
+    stages{
+        stage('Build')
+        {
+        steps{
+            echo 'Build start'
+        }
+        }
+        stage('to run app')
+        {
+        steps{
+            sh 'python myapp.py'
+            echo '${env}'
+        }
+        }
+    }
+}
+// pipeline {
+//     agent { docker { image 'python:3.5.1' } }
+//     stages {
+//         stage('build') {
+//             steps {
+//                 sh 'python --version'
+//                 sh 'python helloworld.py'
+//             }
+//         }
+//     }
+// }
