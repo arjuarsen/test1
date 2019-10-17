@@ -1,8 +1,8 @@
 pipeline{
     agent { docker { image 'python:3.5.1' } }
-    // environment{
-    //     envvar = 'env'
-    // }
+    environment{
+    envvar = 'env'
+    }
     stages{
         stage('Build')
         {
@@ -14,7 +14,7 @@ pipeline{
         {
         steps{
             sh 'python myapp.py'
-            echo '${env}'
+            echo '${envvar}'
         }
         }
     }
