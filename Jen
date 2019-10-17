@@ -1,7 +1,7 @@
 pipeline{
     agent { docker { image 'python:3.5.1' } }
     environment{
-    envvar = 'env'
+    envvar = '${env}'
     }
     stages{
         stage('Build')
